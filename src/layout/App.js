@@ -40,7 +40,7 @@ class App extends Component {
         />
         <button onClick={() => this.addTodo()}>add</button>
         <ul>
-            {this.state.todoList.map((el, i) =>li></li>)} <
+            {this.state.todoList.map((el, i) => <li key ={el + i}>{el}</li>)}
         </ul>
       </div>
     );
