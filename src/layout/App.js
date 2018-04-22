@@ -103,10 +103,7 @@ class App extends Component {
             });
     }
 
-    result(){
-      const res = this.state.a + this.state.b;
-      this.setState({res: res })
-    }
+
   render() {
     return (
       <div className="con container">
