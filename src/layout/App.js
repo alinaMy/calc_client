@@ -6,42 +6,118 @@ class App extends Component {
       super(props);
 
       this.state = {
-          todoList: [],
-          todoInput: '',
-          todoInputValid: false
-
+        a: 0,
+        b: 0,
+        res: 0
       };
   }
-    addTodo(){
-      const todoList = this.state.todoList;
-      todoList.push(this.state.todoInput);
-      this.setState({
-        todoList: todoList,
-        todoInput: ' '
-      });
 
-      }
-     inputChange(v){
-      let todoInputValid = v.length >=3;
-      this.setState({
-          todoInput: v,
-          todoInputValid
-      });
+    sum() {
+        const body = JSON.stringify({
+            a: this.state.a,
+            b: this.state.b,
+        });
 
-      }
+        fetch(
+            'http://localhost:5000/calc/sum',
+            {
+                method: 'post',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body,
+            },
+        )
+            .then(response => response.json())
+            .then((json) => {
+                this.setState({ result: json.result });
+                console.log(json);
+            });
+    }
 
+    sub() {
+        const body = JSON.stringify({
+            a: this.state.a,
+            b: this.state.b,
+        });
 
+        fetch(
+            'http://localhost:5000/calc/sub',
+            {
+                method: 'post',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body,
+            },
+        )
+            .then(response => response.json())
+            .then((json) => {
+                this.setState({ result: json.result });
+                console.log(json);
+            });
+    }
+
+    mult() {
+        const body = JSON.stringify({
+            a: this.state.a,
+            b: this.state.b,
+        });
+
+        fetch(
+            'http://localhost:5000/calc/mult',
+            {
+                method: 'post',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body,
+            },
+        )
+            .then(response => response.json())
+            .then((json) => {
+                this.setState({ result: json.result });
+                console.log(json);
+            });
+    }
+    div() {
+        const body = JSON.stringify({
+            a: this.state.a,
+            b: this.state.b,
+        });
+
+        fetch(
+            'http://localhost:5000/calc/div',
+            {
+                method: 'post',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body,
+            },
+        )
+            .then(response => response.json())
+            .then((json) => {
+                this.setState({ result: json.result });
+                console.log(json);
+            });
+    }
+
+    result(){
+      const res = this.state.a + this.state.b;
+      this.setState({res: res })
+    }
   render() {
     return (
-      <div>
-        <input type = 'text'
-               value = {this.state.todoInput}
-               onChange={(e) => this.inputChange(e.target.value)}
-        />
-        <button onClick={() => this.addTodo()}>add</button>
-        <ul>
-            {this.state.todoList.map((el, i) => <li key ={el + i}>{el}</li>)}
-        </ul>
+      <div className="con container">
+
+            <input className = "input form-control" type="text" onChange={e => this.setState({a: +e.target.value})}/>
+            <input className = "input form-control" type="text" onChange={e => this.setState({b: +e.target.value})}/>
+            <button className="btn btn btn-primary" onClick={() => this.sub()}>Sub </button>
+            <button className="btn btn btn-primary" onClick={() => this.sum()}>Sum </button>
+            <button className="btn btn btn-primary" onClick={() => this.mult()}>Mult </button>
+            <button className="btn btn btn-primary" onClick={() => this.div()}>Div </button>
+
       </div>
     );
   }
