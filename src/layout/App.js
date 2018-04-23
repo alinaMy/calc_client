@@ -16,10 +16,11 @@ class App extends Component {
         const body = JSON.stringify({
             a: this.state.a,
             b: this.state.b,
+            res: this.state.a + this.state.b,
         });
 
         fetch(
-            'http://localhost:5000/calc/sum',
+            'https://calc-server-alina.herokuapp.com//calc/sum',
             {
                 method: 'post',
                 headers: {
@@ -42,7 +43,7 @@ class App extends Component {
         });
 
         fetch(
-            'http://localhost:5000/calc/sub',
+            'https://calc-server-alina.herokuapp.com//calc/sub',
             {
                 method: 'post',
                 headers: {
@@ -65,7 +66,7 @@ class App extends Component {
         });
 
         fetch(
-            'http://localhost:5000/calc/mult',
+            'https://calc-server-alina.herokuapp.com//calc/mult',
             {
                 method: 'post',
                 headers: {
@@ -87,7 +88,7 @@ class App extends Component {
         });
 
         fetch(
-            'http://localhost:5000/calc/div',
+            'https://calc-server-alina.herokuapp.com//calc/div',
             {
                 method: 'post',
                 headers: {
@@ -110,6 +111,7 @@ class App extends Component {
 
             <input className = "input form-control" type="text" onChange={e => this.setState({a: +e.target.value})}/>
             <input className = "input form-control" type="text" onChange={e => this.setState({b: +e.target.value})}/>
+
             <button className="btn btn btn-primary" onClick={() => this.sub()}>Sub </button>
             <button className="btn btn btn-primary" onClick={() => this.sum()}>Sum </button>
             <button className="btn btn btn-primary" onClick={() => this.mult()}>Mult </button>
