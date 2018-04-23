@@ -20,7 +20,7 @@ class App extends Component {
         });
 
         fetch(
-            'https://calc-server-alina.herokuapp.com//calc/sum',
+            'https://calc-server-alina.herokuapp.com/calc/sum',
             {
                 method: 'post',
                 headers: {
@@ -43,7 +43,7 @@ class App extends Component {
         });
 
         fetch(
-            'https://calc-server-alina.herokuapp.com//calc/sub',
+            'https://calc-server-alina.herokuapp.com/calc/sub',
             {
                 method: 'post',
                 headers: {
@@ -66,7 +66,7 @@ class App extends Component {
         });
 
         fetch(
-            'https://calc-server-alina.herokuapp.com//calc/mult',
+            'https://calc-server-alina.herokuapp.com/calc/mult',
             {
                 method: 'post',
                 headers: {
@@ -88,7 +88,7 @@ class App extends Component {
         });
 
         fetch(
-            'https://calc-server-alina.herokuapp.com//calc/div',
+            'https://calc-server-alina.herokuapp.com/calc/div',
             {
                 method: 'post',
                 headers: {
